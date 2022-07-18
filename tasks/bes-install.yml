@@ -1,0 +1,14 @@
+---
+
+- name: Installing Eclipse
+  snap:
+    name: 'eclipse'
+    classic: yes
+
+- name: link eclipse to /usr/bin/eclipse
+  file:
+    src: "{{ eclipse_install_path }}/eclipse/eclipse"
+    dest: /usr/bin/eclipse
+    state: link
+    force: yes
+    mode: "0755"

@@ -1,0 +1,4 @@
+---
+- name: Update eclipse to latest version
+  command: snap refresh eclipse
+  register: update_command
