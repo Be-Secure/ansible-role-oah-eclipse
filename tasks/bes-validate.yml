@@ -1,0 +1,14 @@
+---
+- name: Validating Eclipse installation
+  command: snap list
+  register: snap_list_command
+
+- name: Eclipse is installed
+  debug:
+    msg: "Eclipse is Installed"
+  when: '"eclipse" in "{{snap_list_command.stdout_lines}}"'
+
+- name: Eclipse is not installed
+  debug:
+    msg: "Eclipse is not installed"
+  when: '"eclipse" not in "{{snap_list_command.stdout_lines}}"'

@@ -1,2 +1,17 @@
 ---
 # tasks file for ansible-role-bes-eclipse
+
+- include: "tasks/bes-install.yml"
+  when: bes_command == "install"
+
+- include: "tasks/bes-uninstall.yml"
+  when: bes_command == "uninstall"
+
+- include: "tasks/bes-validate.yml"
+  when: bes_command == "validate"
+
+- include: "tasks/bes-update.yml"
+  when: bes_command == "update"
+
+
+

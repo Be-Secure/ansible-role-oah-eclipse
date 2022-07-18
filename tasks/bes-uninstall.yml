@@ -1,0 +1,11 @@
+---
+
+- name: Uninstall Eclipse
+  snap:
+    name: eclipse
+    state: absent
+
+- name: Remove eclipse link from /usr/bin
+  file:
+    path: /usr/bin/eclipse
+    state: absent
