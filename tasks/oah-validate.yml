@@ -1,0 +1,19 @@
+---
+- name: Validate Installation
+  command: which eclipse
+  register: package_check
+  ignore_errors: true
+  
+- command: which eclipse
+  register: eclipse_path
+  when: package_check.rc == 0
+
+- name: Message
+  debug: 
+    msg: "Eclipse found at {{ eclipse_path.stdout }}"
+  when: package_check.rc == 0
+  
+- name: Message
+  debug:
+    msg: "Eclipse not found"
+  when: package_check.rc == 1

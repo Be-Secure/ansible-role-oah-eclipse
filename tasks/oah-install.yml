@@ -1,0 +1,16 @@
+---
+
+- name: Installing requirements
+  become: yes
+  apt: 
+    name: "{{ eclipse_req_packages }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Installing eclipse classic
+  become: yes
+  shell: snap install eclipse --classic 
+
+- include: tasks/pin_to_favourites.yml
+  when: eclipse_pin_fav | bool

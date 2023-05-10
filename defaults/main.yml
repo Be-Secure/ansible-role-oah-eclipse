@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-role-oah-eclipse
+eclipse_req_packages: snapd
+vagrant_home: /home/vagrant
+eclipse_tmp: "{{ home_dir }}/eclipse_tmp"
+eclipse_pin_fav: true
